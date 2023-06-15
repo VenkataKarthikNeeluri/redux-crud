@@ -5,7 +5,7 @@ const axiosIns = axios.create({
 })
 
 const UserApi = {
-    getAll: async () => {
+    getAll:  () => {
         return axiosIns.request({
             method: 'GET',
             url: `/users`
@@ -21,14 +21,20 @@ const UserApi = {
         return axiosIns.request({
             method: "POST",
             url: `/users/add`,
-            data: user
+            data: "user"
         })
     },
     update: async (user,id) => {
         return axiosIns.request({
             method: "PATCH",
             url: `/users/${id}`,
-            data: user
+            data: "user"
+        })
+    },
+    delete: async (id) => {
+        return axiosIns.request({
+            method: "DELETE",
+            url: `/users/${id}`
         })
     }
 }
