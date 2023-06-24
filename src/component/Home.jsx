@@ -37,7 +37,7 @@ function Home(props) {
                       <h4 className="text-center"> { item.firstName } { item.lastName }</h4>
                     </div>
                     <div className="card-footer">
-                      <NavLink className="btn btn-sm btn-info">
+                      <NavLink to={`/update/${item.id}`} className="btn btn-sm btn-info">
                         <i className='bi bi-pencil'></i>
                       </NavLink>
                       <button className='btn btn-sm btn-danger float-end'>
