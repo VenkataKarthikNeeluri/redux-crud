@@ -21,9 +21,19 @@ const userSlice = createSlice({
         .addCase(readUser.fulfilled, (state,action) => {
             console.log('reducer data =', action.payload)
             state.users = action.payload
+            return state
         })
-        .addCase(updateUser.fulfilled, (state,action) => {})
-        .addCase(deleteUser.fulfilled, (state,action) => {})
+        .addCase(updateUser.fulfilled, (state,action) => {
+            const userIndex = state.users.findIndex((item) => item.id == action.payload.id)
+            state.users[userIndex] = {
+                ...state.users[userIndex],
+                ...action.payload
+            }
+        })
+        .addCase(deleteUser.fulfilled, (state,action) => {
+            const userIndex = state.users.findIndex((item) => item.id == action.payload.id)
+            state.users.splice(userIndex,1)
+        })
     }
 })
 

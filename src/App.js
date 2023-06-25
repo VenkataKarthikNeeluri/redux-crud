@@ -12,7 +12,7 @@ function App() {
   return (
     <BrowserRouter>
       <Menu/>
-      <ToastContainer autoClose={4000} position='top-right'/>
+      <ToastContainer autoClose={2000} position='top-right'/>
       <Routes>
         <Route path={`/`} element={<Home/>} />
         <Route path={`/create`} element={<Create/>} />

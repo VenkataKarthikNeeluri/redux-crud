@@ -17,7 +17,6 @@ function Update() {
 
   const [gender,setGender] = useState('')
   const dispatch = useDispatch()
-
   const navigate = useNavigate()
   const params = useParams()
 
@@ -45,7 +44,7 @@ function Update() {
         gender
       }
       console.log(`updated user =`, newUser)
-      dispatch(updateUser(newUser))
+      dispatch(updateUser({ user: newUser, id: params.id }))
       .unwrap()
       .then(res => {
         toast.success(' User updated successfully')
